@@ -1,7 +1,9 @@
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
 from cassandra.cqlengine import connection
-from .config import settings
+from cassandra.cqlengine.management import sync_table
+from app.config import settings
+from app.user.models import User
 
 
 ASTRADB_CONNECT_BUNDLE = "./app/project.zip"
@@ -9,7 +11,7 @@ ASTRADB_CLIENT_ID = settings.db_client_id
 ASTRADB_CLIENT_SECRET = settings.db_client_secret
 
 
-def session():
+def get_session():
     cloud_config = {
         'secure_connect_bundle': ASTRADB_CONNECT_BUNDLE
     }
