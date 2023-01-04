@@ -5,6 +5,7 @@ from fastapi.templating import Jinja2Templates
 from app import db
 from cassandra.cqlengine.management import sync_table
 from app.user.models import User
+from app.user.schemas import UserLoginSchema, UserSignupSchema
 
 # pathlib giving /app path saving in base
 # .parent give app/
